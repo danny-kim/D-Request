@@ -23,8 +23,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.chheang.drequest.Utils.getMethodName;
-
 public abstract class DRequest<T> {
     protected static final String PROTOCOL_CHARSET = "utf-8";
     private static RequestQueue requestQueue;
@@ -122,7 +120,7 @@ public abstract class DRequest<T> {
             }
             try {
                 Log.d("EXECUTE:>>>", this.getClass().getSimpleName() + "(" + getContext().getClass().getSimpleName() + ") : "
-                        + getMethodName(getMethod()) + " " + getRequestUrl());
+                        + Utils.getMethodName(getMethod()) + " " + getRequestUrl());
                 if (!TextUtils.isEmpty(onGetBodyRequest()))
                     Log.d("EXECUTE:>>>", this.getClass().getSimpleName() + " JSON data " + new JSONObject(onGetBodyRequest()).toString(1));
                 else
